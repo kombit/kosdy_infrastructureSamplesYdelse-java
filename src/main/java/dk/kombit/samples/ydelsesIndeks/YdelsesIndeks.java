@@ -90,13 +90,9 @@ public class YdelsesIndeks {
                                                         )
                                                         .withType(new UnikIdType()
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getAnsvarligOrganisationsenhedTypeUuid() // String / Derived from Fælleskommunalt Klassifikationssystem
-                                                        )
-                                                        /*
-                                                        .withLokalUdvidelseListe(new LokalUdvidelseListeType() // Follow-up
-                                                                .withSenestAendretTidspunkt(SoapUtils.getXmlCalender())
-                                                                .withAny(List.of())
-                                                        */
-                                                        )
+                                                        ))
+                                                        .withReferenceID(new UnikIdType()
+                                                                .withUUIDIdentifikator("ÆØÅ"))
                                                 ))
                                                 .withYdelse(new oio.sts.ydelse.bevillingindeks._6.YdelseRelationType()
                                                         .withYdelsesnavn(ClientProperties.getInstance().getYdelseYdelsesnavn()) // Mandatory / Name of the benefit
@@ -144,6 +140,8 @@ public class YdelsesIndeks {
                                                         .withType(new UnikIdType() 
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getBevillingssagTypeUuid()) // Mandatory / String / Derived from Fælleskommunalt Klassifikationssystem
                                                         )
+                                                        .withReferenceID(new UnikIdType()
+                                                                .withUUIDIdentifikator("ÆØÅ"))
                                                         )
                                                 )
                                                 .withBevillingspart(List.of(new oio.sts.ydelse.bevillingindeks._6.BevillingIndeksPartRelationType()
@@ -198,9 +196,9 @@ public class YdelsesIndeks {
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getBevillingEjerTypeUuid()) // Developer derive the value from Fælleskommunalt Klassifikation
                                                                 
                                                         )
-//                                                        .withReferenceID(new UnikIdType() // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
-//                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getBevillingEjerReferenceId()) // UUID
-//                                                        )
+                                                        .withReferenceID(new UnikIdType() // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getBevillingEjerReferenceId()) // UUID
+                                                        )
                                                         )
                                                 )
                                                 // Bevillings Ansvarlig / Benefit Responsible
@@ -356,7 +354,19 @@ public class YdelsesIndeks {
                                                          */
                                                 ))
                                                 .withItSystem(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.ItSystemRelationType()
-                                                        .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn()) // Mandatory 
+                                                        .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn()) // Mandatory
+                                                        .withVirkning(new VirkningType()
+                                                                .withFraTidspunkt(new TidspunktType()
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ"))) // Mandatory
+                                                                .withTilTidspunkt(new TidspunktType()
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ")) // Mandatory
+                                                                        .withGraenseIndikator(Boolean.getBoolean("ÆØÅ"))
+                                                                )
+                                                                .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
+                                                                        .withUUIDIdentifikator("ÆØÅ") // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
+                                                                )
+                                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue("ÆØÅ"))
+                                                        )
                                                         .withRolle(new UnikIdType()
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid()) // Missing Comment
                                                         )
@@ -479,7 +489,7 @@ public class YdelsesIndeks {
                                         // The master IT-system (IT-System Master)
                                         .withItSystem(List.of(new oio.sts.ydelse.bevillingindeks._6.ItSystemRelationType()
                                                 .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn()) // Mandatory / System which provides the benefit
-                                        //      .withSystemURI() // Blank / TO TO BE FILLED
+                                                //.withSystemURI() // Blank / TO TO BE FILLED
                                                 .withRolle(new UnikIdType()
                                                         .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid()) // Mandatory
                                                 )
@@ -875,6 +885,18 @@ public class YdelsesIndeks {
                                 .withItSystem(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.ItSystemRelationType()
                                         .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn())
                                 //      .withSystemURI() // Not to be filled
+                                        .withVirkning(new VirkningType()
+                                                .withFraTidspunkt(new TidspunktType()
+                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ"))) // Mandatory
+                                                .withTilTidspunkt(new TidspunktType()
+                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ")) // Mandatory
+                                                        .withGraenseIndikator(Boolean.getBoolean("ÆØÅ"))
+                                                )
+                                                .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
+                                                        .withUUIDIdentifikator("ÆØÅ") // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
+                                                )
+                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue("ÆØÅ"))
+                                        )
                                         .withRolle(new UnikIdType()
                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid())
                                         )
