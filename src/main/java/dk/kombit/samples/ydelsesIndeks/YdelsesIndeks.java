@@ -92,7 +92,7 @@ public class YdelsesIndeks {
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getAnsvarligOrganisationsenhedTypeUuid() // String / Derived from Fælleskommunalt Klassifikationssystem
                                                         ))
                                                         .withReferenceID(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid())) "ÆØÅ"
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid())) // "ÆØÅ"
                                                 ))
                                                 .withYdelse(new oio.sts.ydelse.bevillingindeks._6.YdelseRelationType()
                                                         .withYdelsesnavn(ClientProperties.getInstance().getYdelseYdelsesnavn()) // Mandatory / Name of the benefit
@@ -894,13 +894,13 @@ public class YdelsesIndeks {
                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
                                                         .withUUIDIdentifikator(getItSystemTypeUuid()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
                                                 )
-                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(getitSystemAktoerRef())) "ÆØÅ"
+                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(getitSystemAktoerRef())) // "ÆØÅ"
                                         )
                                         .withRolle(new UnikIdType()
                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid())
                                         )
                                         .withType(new UnikIdType()
-                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid()) "ÆØÅ"
+                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid()) // "ÆØÅ"
                                         )
                                 //      .withIndeks() // Not to be filled
                                         .withReferenceID(new UnikIdType()
