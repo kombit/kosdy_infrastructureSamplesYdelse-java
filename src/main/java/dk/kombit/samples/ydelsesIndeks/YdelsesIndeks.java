@@ -6,6 +6,7 @@ import dk.kombit.xml.schemas.requestheader._1.RequestHeaderType;
 import dk.stoettesystemerne.ydelsesindeks.YdelseIndeksPortType;
 import dk.stoettesystemerne.ydelsesindeks.YdelseIndeksService6;
 import oio.sagdok._3_0.*;
+import oio.sts.ydelse.bevillingindeks._6.SikkerhedsprofilRelationType;
 import oio.sts.ydelse.ydelseindeks._6.*;
 
 import javax.xml.ws.BindingProvider;
@@ -63,7 +64,7 @@ public class YdelsesIndeks {
                                                         )
                                                         .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getBevillingsegenskaberAktoerTypeKode())) // From Valuelist: Either "Bruger" or "ItSystem"
                                                 )
-                                                .withBrugervendtNoegle(ClientProperties.getInstance().getBevillingsegenskaberBrugervendtnoegle()) // Mandatory; Max 50 Characters long 
+                                                .withBrugervendtNoegle(ClientProperties.getInstance().getBevillingsegenskaberBrugervendtnoegle()) // Mandatory; Max 50 Characters long
                                                 .withFoelsomhed(oio.sts.ydelse.bevillingindeks._6.FoelsomhedType.fromValue(ClientProperties.getInstance().getBevillingsegenskaberFoelsomhed())))) // Mandatory / From Value List; IKKE_FORTROLIGE_DATA, FORTROLIGE_PERSONOPLYSNINGER, FOELSOMME_PERSONOPLYSNINGER, VIP_SAGER
                                         .withBevilgetYdelse(List.of(new oio.sts.ydelse.bevillingindeks._6.BevilgetYdelseType()
                                                 .withVirkning(new VirkningType()
@@ -92,7 +93,7 @@ public class YdelsesIndeks {
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getAnsvarligOrganisationsenhedTypeUuid() // String / Derived from Fælleskommunalt Klassifikationssystem
                                                         ))
                                                         .withReferenceID(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid())) // "ÆØÅ"
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid()))
                                                 ))
                                                 .withYdelse(new oio.sts.ydelse.bevillingindeks._6.YdelseRelationType()
                                                         .withYdelsesnavn(ClientProperties.getInstance().getYdelseYdelsesnavn()) // Mandatory / Name of the benefit
@@ -118,6 +119,30 @@ public class YdelsesIndeks {
                                         ))
                                         .withTilstandListe(new oio.sts.ydelse.bevillingindeks._6.TilstandListeType())
                                         .withRelationListe(new oio.sts.ydelse.bevillingindeks._6.RelationListeType()
+                                                .withSikkerhedsprofil(List.of(new oio.sts.ydelse.bevillingindeks._6.SikkerhedsprofilRelationType()
+                                                                .withVirkning(new VirkningType()
+                                                                        .withFraTidspunkt(new TidspunktType()
+                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ")))
+                                                                        .withTilTidspunkt(new TidspunktType()
+                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ"))
+                                                                        )
+                                                                        .withAktoerRef(new UnikIdType()
+                                                                                .withUUIDIdentifikator("ÆØÅ")
+                                                                        )
+                                                                        .withAktoerTypeKode(AktoerTypeKodeType.fromValue("ÆØÅ"))
+                                                                )
+                                                        .withRolle(new UnikIdType()
+                                                                .withUUIDIdentifikator("ÆØÅ")
+                                                        )
+                                                        .withType(new UnikIdType()
+                                                                .withUUIDIdentifikator("ÆØÅ")
+                                                        )
+                                                        .withReferenceID(new UnikIdType()
+                                                                .withUUIDIdentifikator("ÆØÅ")
+                                                        )
+                                                        .withIndeks("ÆØÅ")
+                                                        )
+                                                )
                                                 .withBevillingssag(List.of(new oio.sts.ydelse.bevillingindeks._6.BevillingIndeksSagRelationType()
                                                         .withBrugervendtNoegle(ClientProperties.getInstance().getBevillingssagBrugervendtNoegle()) // Mandatory / String / Max 50 Char /  
                                                         .withFuldtNavn(ClientProperties.getInstance().getBevillingssagFuldtNavn()) // Mandatory / Case Title / String / Max 256 Char
@@ -357,14 +382,14 @@ public class YdelsesIndeks {
                                                         .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn()) // Mandatory
                                                         .withVirkning(new VirkningType()
                                                                 .withFraTidspunkt(new TidspunktType()
-                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(getBevillingsegenskaberVirkningFra()))) // Mandatory "ÆØÅ"
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getBevillingsegenskaberVirkningFra()))) // Mandatory "ÆØÅ"
                                                                 .withTilTidspunkt(new TidspunktType()
                                                                         .withGraenseIndikator(true)
                                                                 )
                                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
-                                                                        .withUUIDIdentifikator(getitSystemAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem "ÆØÅ"
+                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem "ÆØÅ"
                                                                 )
-                                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(itSystemAktoerTypeKodeType()))
+                                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemAktoerTypeKodeType()))
                                                         )
                                                         .withRolle(new UnikIdType()
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid()) // Missing Comment
@@ -382,6 +407,37 @@ public class YdelsesIndeks {
                                                                 .withAny(List.of())
                                                         )
                                                          */
+                                                ))
+                                                // Effektuering.IT-system.Afsender
+                                                .withItSystem(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.ItSystemRelationType()
+                                                                .withSystemNavn(ClientProperties.getInstance().getItSystemSenderSystemName()) // Mandatory
+                                                                .withVirkning(new VirkningType()
+                                                                        .withFraTidspunkt(new TidspunktType()
+                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getItSystemSenderStartDate()))
+                                                                        )
+                                                                        .withTilTidspunkt(new TidspunktType()
+                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getItSystemSenderEndDate()))
+                                                                        )
+                                                                        .withAktoerRef(new UnikIdType()
+                                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemAktoerRef())
+                                                                        )
+                                                                        .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemAktoerTypeKodeType()))
+                                                                )
+                                                                .withRolle(new UnikIdType()
+                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemSenderRole())
+                                                                )
+                                                                .withType(new UnikIdType()
+                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemSenderType())
+                                                                )
+                                                                .withReferenceID(new UnikIdType()
+                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemSenderReferenceID()) // Always UUID
+                                                                )
+                                                /*
+                                                .withLokalUdvidelseListe(new LokalUdvidelseListeType() // Follow up
+                                                        .withSenestAendretTidspunkt(SoapUtils.getXmlCalender())
+                                                        .withAny(List.of())
+                                                )
+                                                 */
                                                 ))
                                                 .withOekonomiskEffektueringPart(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.OekonomiskEffektueringIndeksPartRelationType()
                                                 //      .withBrugervendtNoegle() // Optional
@@ -886,21 +942,21 @@ public class YdelsesIndeks {
                                 //      .withSystemURI() // Not to be filled
                                         .withVirkning(new VirkningType()
                                                 .withFraTidspunkt(new TidspunktType()
-                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(getBevillingsegenskaberVirkningFra()))) // Mandatory "ÆØÅ"
+                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getBevillingsegenskaberVirkningFra()))) // Mandatory "ÆØÅ"
                                                 .withTilTidspunkt(new TidspunktType()
                                                 //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ")) // Mandatory
-                                                        .withGraenseIndikator(Boolean.getBoolean(true))
+                                                        .withGraenseIndikator(true)
                                                 )
                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
-                                                        .withUUIDIdentifikator(getItSystemTypeUuid()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
+                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
                                                 )
-                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(getitSystemAktoerRef())) // "ÆØÅ"
+                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemAktoerRef()))
                                         )
                                         .withRolle(new UnikIdType()
                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid())
                                         )
                                         .withType(new UnikIdType()
-                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid()) // "ÆØÅ"
+                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid())
                                         )
                                 //      .withIndeks() // Not to be filled
                                         .withReferenceID(new UnikIdType()

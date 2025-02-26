@@ -273,8 +273,23 @@ public class ClientProperties {
 
     private static final String BEVILLING_TIDSPUNKT = "bevillingTidspunkt";
 
+    private static final String IT_SYSTEM_START_DATO = "itSystemStartDato";
 
+    private static final String IT_SYSTEM_AKTOER_REF = "itSystemAktoerRef";
 
+    private static final String IT_SYSTEM_AKTOER_TYPE_KODE_TYPE = "itSystemAktoerTypeKodeType";
+
+    private static final String IT_SYSTEM_SENDER_START_DATE = "itSystemSenderStartDate";
+
+    private static final String IT_SYSTEM_SENDER_END_DATE = "itSystemSenderEndDate";
+
+    private static final String IT_SYSTEM_SENDER_ROLE = "itSystemSenderRole";
+
+    private static final String IT_SYSTEM_SENDER_TYPE = "itSystemSenderType";
+
+    private static final String IT_SYSTEM_SENDER_REFERENCE_ID = "itSystemSenderReferenceID";
+
+    private static final String IT_SYSTEM_SENDER_SYSTEM_NAME = "itSystemSenderSystemName";
 
     /**
      * Method creates a new instance of ClientProperties
@@ -583,4 +598,24 @@ public class ClientProperties {
     public String getYdelsesmodtagerAktoerTypeKode() { return properties.getProperty(YDELSESMODTAGER_AKTOER_TYPE_KODE); }
 
     public String getBevillingTidspunkt() { return properties.getProperty(BEVILLING_TIDSPUNKT); }
+
+    public String getItSystemStartDato() { return properties.getProperty(IT_SYSTEM_START_DATO); }
+
+    public String getItSystemAktoerRef() { return properties.getProperty(IT_SYSTEM_AKTOER_REF); }
+
+    public String getItSystemAktoerTypeKodeType() { return properties.getProperty(IT_SYSTEM_AKTOER_TYPE_KODE_TYPE); }
+
+    public String getItSystemSenderStartDate() { return properties.getProperty(IT_SYSTEM_SENDER_START_DATE); }
+
+    public String getItSystemSenderEndDate() { return properties.getProperty(IT_SYSTEM_SENDER_END_DATE); }
+
+    public String getItSystemSenderRole() { return properties.getProperty(IT_SYSTEM_SENDER_ROLE); }
+
+    public String getItSystemSenderType() { return properties.getProperty(IT_SYSTEM_SENDER_TYPE); }
+
+    public String getItSystemSenderReferenceID() { return properties.getProperty(IT_SYSTEM_SENDER_REFERENCE_ID); }
+
+    public String getItSystemSenderSystemName() { return properties.getProperty(IT_SYSTEM_SENDER_SYSTEM_NAME); }
+
+
 }
