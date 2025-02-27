@@ -122,25 +122,26 @@ public class YdelsesIndeks {
                                                 .withSikkerhedsprofil(List.of(new oio.sts.ydelse.bevillingindeks._6.SikkerhedsprofilRelationType()
                                                                 .withVirkning(new VirkningType()
                                                                         .withFraTidspunkt(new TidspunktType()
-                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ")))
+                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getBevillingsegenskaberVirkningFra())))
                                                                         .withTilTidspunkt(new TidspunktType()
-                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender("ÆØÅ"))
+                                                                        //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender(()))
+                                                                                .withGraenseIndikator(true)
                                                                         )
                                                                         .withAktoerRef(new UnikIdType()
-                                                                                .withUUIDIdentifikator("ÆØÅ")
+                                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getbevillingAnsvarligAktoerRef())
                                                                         )
-                                                                        .withAktoerTypeKode(AktoerTypeKodeType.fromValue("ÆØÅ"))
+                                                                        .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getBevillingAnsvarligAktoerTypeKode()))
                                                                 )
                                                         .withRolle(new UnikIdType()
-                                                                .withUUIDIdentifikator("ÆØÅ")
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getSecurityProfileRole())
                                                         )
                                                         .withType(new UnikIdType()
-                                                                .withUUIDIdentifikator("ÆØÅ")
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getSecurityProfileType())
                                                         )
                                                         .withReferenceID(new UnikIdType()
-                                                                .withUUIDIdentifikator("ÆØÅ")
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getSecurityProfileReferenceID())
                                                         )
-                                                        .withIndeks("ÆØÅ")
+                                                        .withIndeks(ClientProperties.getInstance().getSecurityProfileIndeks())
                                                         )
                                                 )
                                                 .withBevillingssag(List.of(new oio.sts.ydelse.bevillingindeks._6.BevillingIndeksSagRelationType()
@@ -268,6 +269,7 @@ public class YdelsesIndeks {
                                 )
                         )
                 )))
+                // Oekonomisk Effektuering
                 .withBevillingIndeksOrOekonomiskEffektueringIndeks(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.ImportInputType()
                         .withOekonomiskEffektueringIndeks(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.OekonomiskEffektueringIndeksType()
                                 .withUUIDIdentifikator(ClientProperties.getInstance().getEffektueringUUIDIdentifikator())
@@ -346,7 +348,7 @@ public class YdelsesIndeks {
                                                         )
 
                                                 ))
-                                                // Ejer / Aktoer
+                                                // Oekonomisk Effektuering.Ejer / Aktoer
                                                 .withAktoer(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.OekonomiskEffektueringIndeksAktoerRelationType()
                                                         .withFuldtNavn(ClientProperties.getInstance().getEffektueringEjerFuldtNavn())
                                                         .withCVRNr(ClientProperties.getInstance().getEffektueringEjerCVRNr())
@@ -378,6 +380,7 @@ public class YdelsesIndeks {
                                                         )
                                                          */
                                                 ))
+                                                // Oekonomisk Effektuering.itSystem.Master
                                                 .withItSystem(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.ItSystemRelationType()
                                                         .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn()) // Mandatory
                                                         .withVirkning(new VirkningType()
@@ -387,15 +390,15 @@ public class YdelsesIndeks {
                                                                         .withGraenseIndikator(true)
                                                                 )
                                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
-                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem "ÆØÅ"
+                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem "ÆØÅ"
                                                                 )
-                                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemAktoerTypeKodeType()))
+                                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemMasterAktoerTypeKodeType()))
                                                         )
                                                         .withRolle(new UnikIdType()
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid()) // Missing Comment
                                                         )
                                                         .withType(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid())
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterTypeUuid())
                                                         )
                                                 //      .withIndeks() // NEVER TO BE USED
                                                         .withReferenceID(new UnikIdType() // Mandatory / UUID String / Sender System UUID from Fælleskommunalt Administrationmodul
@@ -408,7 +411,7 @@ public class YdelsesIndeks {
                                                         )
                                                          */
                                                 ))
-                                                // Effektuering.IT-system.Afsender
+                                                // Oekonomisk Effektuering.itSystem.Afsender
                                                 .withItSystem(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.ItSystemRelationType()
                                                                 .withSystemNavn(ClientProperties.getInstance().getItSystemSenderSystemName()) // Mandatory
                                                                 .withVirkning(new VirkningType()
@@ -416,7 +419,8 @@ public class YdelsesIndeks {
                                                                                 .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getItSystemSenderStartDate()))
                                                                         )
                                                                         .withTilTidspunkt(new TidspunktType()
-                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getItSystemSenderEndDate()))
+                                                                        //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getItSystemSenderEndDate()))
+                                                                                .withGraenseIndikator(true)
                                                                         )
                                                                         .withAktoerRef(new UnikIdType()
                                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemAktoerRef())
