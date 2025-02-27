@@ -425,7 +425,7 @@ public class YdelsesIndeks {
                                                                         .withAktoerRef(new UnikIdType()
                                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterAktoerRef())
                                                                         )
-                                                                        .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemMasterAktoerTypeKodeType()))
+                                                                        .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemSenderAktoerTypeKodeType()))
                                                                 )
                                                                 .withRolle(new UnikIdType()
                                                                         .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemSenderRole())
