@@ -128,7 +128,7 @@ public class YdelsesIndeks {
                                                                                 .withGraenseIndikator(true)
                                                                         )
                                                                         .withAktoerRef(new UnikIdType()
-                                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getbevillingAnsvarligAktoerRef())
+                                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getBevillingAnsvarligAktoerRef())
                                                                         )
                                                                         .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getBevillingAnsvarligAktoerTypeKode()))
                                                                 )

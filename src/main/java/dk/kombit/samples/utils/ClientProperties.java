@@ -291,6 +291,18 @@ public class ClientProperties {
 
     private static final String IT_SYSTEM_SENDER_SYSTEM_NAME = "itSystemSenderSystemName";
 
+    private static final String SECURITY_PROFILE_ROLE = "securityProfileRole";
+
+    private static final String SECURITY_PROFILE_TYPE = "securityProfileType";
+
+    private static final String SECURITY_PROFILE_REFERENCE_ID = "securityProfileReferenceID";
+
+    private static final String SECURITY_PROFILE_INDEKS = "securityProfileIndeks";
+
+    private static final String IT_SYSTEM_MASTER_AKTOER_REF = "itSystemMasterAktoerRef";
+
+    private static final String IT_SYSTEM_MASTER_AKTOER_TYPE_KODE_TYPE = "itSystemMasterAktoerTypeKodeType";
+
     /**
      * Method creates a new instance of ClientProperties
      * @return clientProperties
@@ -617,5 +629,16 @@ public class ClientProperties {
 
     public String getItSystemSenderSystemName() { return properties.getProperty(IT_SYSTEM_SENDER_SYSTEM_NAME); }
 
+    public String getSecurityProfileRole() { return properties.getProperty(SECURITY_PROFILE_ROLE); }
+
+    public String getSecurityProfileType() { return properties.getProperty(SECURITY_PROFILE_TYPE); }
+
+    public String getSecurityProfileReferenceID() { return properties.getProperty(SECURITY_PROFILE_REFERENCE_ID); }
+
+    public String getSecurityProfileIndeks() { return properties.getProperty(SECURITY_PROFILE_INDEKS); }
+
+    public String getItSystemMasterAktoerRef() { return properties.getProperty(IT_SYSTEM_MASTER_AKTOER_REF); }
+
+    public String getItSystemMasterAktoerTypeKodeType() {return properties.getProperty(IT_SYSTEM_MASTER_AKTOER_TYPE_KODE_TYPE); }
 
 }
