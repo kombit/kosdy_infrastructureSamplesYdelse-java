@@ -87,13 +87,13 @@ public class YdelsesIndeks {
                                                 .withItSystem(List.of(new oio.sts.ydelse.bevillingindeks._6.ItSystemRelationType()
                                                         .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn()) // Name of Master It-System //
                                                         .withRolle(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid()) // String / Derived from Fælleskommunalt Klassifikationssystem
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterRoleUUID()) // String / Derived from Fælleskommunalt Klassifikationssystem
                                                         )
                                                         .withType(new UnikIdType()
                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getAnsvarligOrganisationsenhedTypeUuid() // String / Derived from Fælleskommunalt Klassifikationssystem
                                                         ))
                                                         .withReferenceID(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid()))
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterTypeUUID()))
                                                 ))
                                                 .withYdelse(new oio.sts.ydelse.bevillingindeks._6.YdelseRelationType()
                                                         .withYdelsesnavn(ClientProperties.getInstance().getYdelseYdelsesnavn()) // Mandatory / Name of the benefit
@@ -395,10 +395,10 @@ public class YdelsesIndeks {
                                                                 .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemMasterAktoerTypeKodeType()))
                                                         )
                                                         .withRolle(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid()) // Missing Comment
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterRoleUUID()) // Missing Comment
                                                         )
                                                         .withType(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterTypeUuid())
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterTypeUUID())
                                                         )
                                                 //      .withIndeks() // NEVER TO BE USED
                                                         .withReferenceID(new UnikIdType() // Mandatory / UUID String / Sender System UUID from Fælleskommunalt Administrationmodul
@@ -550,10 +550,10 @@ public class YdelsesIndeks {
                                                 .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn()) // Mandatory / System which provides the benefit
                                                 //.withSystemURI() // Blank / TO TO BE FILLED
                                                 .withRolle(new UnikIdType()
-                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid()) // Mandatory
+                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterRoleUUID()) // Mandatory
                                                 )
                                                 .withType(new UnikIdType()
-                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid()) // Mandatory / Not to be changed
+                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterTypeUUID()) // Mandatory / Not to be changed
                                                 )
                                         //      .withIndeks() // Blank / NOT TO BE FILLED
                                                 .withReferenceID(new UnikIdType()
@@ -952,15 +952,15 @@ public class YdelsesIndeks {
                                                         .withGraenseIndikator(true)
                                                 )
                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
-                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
+                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterTypeUUID()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
                                                 )
                                                 .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemAktoerRef()))
                                         )
                                         .withRolle(new UnikIdType()
-                                                .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid())
+                                                .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterRoleUUID())
                                         )
                                         .withType(new UnikIdType()
-                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid())
+                                                .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterTypeUUID())
                                         )
                                 //      .withIndeks() // Not to be filled
                                         .withReferenceID(new UnikIdType()
@@ -1082,7 +1082,7 @@ public class YdelsesIndeks {
                                                                 .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn())
                                                         //      .withSystemURI(ClientProperties.getInstance().) // Blank / TO TO BE FILLED
                                                                 .withRolle(new UnikIdType()
-                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid())
+                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterRoleUUID())
                                                                 //      .withURNIdentifikator(ClientProperties.getInstance().)
                                                                 )
                                                                 .withType(new UnikIdType()
@@ -1383,7 +1383,7 @@ public class YdelsesIndeks {
                                                                                 .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn())
                                                                         //      .withSystemURI(ClientProperties.getInstance().)
                                                                                 .withRolle(new UnikIdType()
-                                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid())
+                                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterRoleUUID())
                                                                                 //      .withURNIdentifikator(ClientProperties.getInstance().)
                                                                                 )
                                                                                 .withType(new UnikIdType()
@@ -1754,11 +1754,11 @@ public class YdelsesIndeks {
                                                         .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn())
                                                 //      .withSystemURI(ClientProperties.getInstance().)
                                                         .withRolle(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getMasterUuid())
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterRoleUUID())
                                                         //      .withURNIdentifikator(ClientProperties.getInstance().)
                                                         )
                                                         .withType(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemTypeUuid())
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemMasterTypeeUUID())
                                                         //      .withURNIdentifikator(ClientProperties.getInstance().)
                                                         )
                                                 //      .withIndeks(ClientProperties.getInstance().)
