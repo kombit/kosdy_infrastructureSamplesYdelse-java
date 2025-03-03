@@ -423,7 +423,7 @@ public class YdelsesIndeks {
                                                                                 .withGraenseIndikator(true)
                                                                         )
                                                                         .withAktoerRef(new UnikIdType()
-                                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterAktoerRef())
+                                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getitSystemSenderAktoerRef())
                                                                         )
                                                                         .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getItSystemSenderAktoerTypeKodeType()))
                                                                 )
