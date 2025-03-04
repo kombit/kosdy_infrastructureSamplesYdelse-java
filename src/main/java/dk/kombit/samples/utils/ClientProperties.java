@@ -305,6 +305,8 @@ public class ClientProperties {
 
     private static final String IT_SYSTEM_SENDER_AKTOER_TYPE_KODE_TYPE = "itSystemSenderAktoerTypeKodeType";
 
+    private static final String IT_SYSTEM_SENDER_AKTOER_REF = "itSystemSenderAktoerRef";
+
     /**
      * Method creates a new instance of ClientProperties
      * @return clientProperties
@@ -644,5 +646,7 @@ public class ClientProperties {
     public String getItSystemMasterTypeUUID() { return properties.getProperty(IT_SYSTEM_MASTER_TYPE_UUID); }
 
     public String getItSystemSenderAktoerTypeKodeType() { return properties.getProperty(IT_SYSTEM_SENDER_AKTOER_TYPE_KODE_TYPE); }
+
+    public String getItSystemSenderAktoerRef() { return properties.getProperty(IT_SYSTEM_SENDER_AKTOER_REF); }
 
 }
