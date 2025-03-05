@@ -348,7 +348,7 @@ public class YdelsesIndeks {
                                                         )
 
                                                 ))
-                                                // Oekonomisk Effektuering.Ejer / Aktoer
+                                                // Oekonomisk Effektueringsaktoer.Ejer (Owner)
                                                 .withAktoer(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.OekonomiskEffektueringIndeksAktoerRelationType()
                                                         .withFuldtNavn(ClientProperties.getInstance().getEffektueringEjerFuldtNavn())
                                                         .withCVRNr(ClientProperties.getInstance().getEffektueringEjerCVRNr())
@@ -380,6 +380,40 @@ public class YdelsesIndeks {
                                                         )
                                                          */
                                                 ))
+
+                                                // Oekonomisk Effektueringsaktoer.Udbetalende Enhed (Paying Unit)
+                                                .withAktoer(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.OekonomiskEffektueringIndeksAktoerRelationType()
+                                                        .withFuldtNavn(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedFuldtNavn())
+                                                        .withCVRNr(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedCVRNr())
+                                                        .withVirkning(new VirkningType()
+                                                                .withFraTidspunkt(new TidspunktType()
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedVirkningFra()))) // Mandatory
+                                                                .withTilTidspunkt(new TidspunktType()
+                                                                //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().EffektueringEjerVirkningTil())) // Mandatory
+                                                                        .withGraenseIndikator(true)
+                                                                )
+                                                                .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
+                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
+                                                                )
+                                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedAktoerTypeKode()))
+                                                        )
+                                                        .withRolle(new UnikIdType() // Only one actor?
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedRolleUuid()) // UUID / Developer derive the value from Fælleskommunalt Klassifikationssystem
+                                                        )
+                                                        .withType(new UnikIdType()
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedTypeUuid()) // UUID / Developer derive the value from Fælleskommunalt Klassifikationssystem
+                                                        )
+                                                        .withReferenceID(new UnikIdType() // Mandatory / UUID (String) / Developer derive the value from Fælleskommunalt Organisationssystem
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedReferenceID()) // UUID derived from Fælleskommunalt Organisationssystem
+                                                        )
+                                                        /*
+                                                        .withLokalUdvidelseListe(new LokalUdvidelseListeType() // Follow up
+                                                                .withSenestAendretTidspunkt(SoapUtils.getXmlCalender())
+                                                                .withAny(List.of())
+                                                        )
+                                                                */
+                                                ))
+
                                                 // Oekonomisk Effektuering.itSystem.Master
                                                 .withItSystem(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.ItSystemRelationType()
                                                         .withSystemNavn(ClientProperties.getInstance().getAnvenderSystemNavn()) // Mandatory
