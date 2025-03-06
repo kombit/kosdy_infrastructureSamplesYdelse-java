@@ -383,28 +383,28 @@ public class YdelsesIndeks {
 
                                                 // Oekonomisk Effektueringsaktoer.Udbetalende Enhed (Paying Unit)
                                                 .withAktoer(List.of(new oio.sts.ydelse.oekonomiskeffektueringindeks._6.OekonomiskEffektueringIndeksAktoerRelationType()
-                                                        .withFuldtNavn(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedFuldtNavn())
-                                                        .withCVRNr(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedCVRNr())
+                                                        .withFuldtNavn(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedFuldtNavn())
+                                                        .withCVRNr(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedCVRNr())
                                                         .withVirkning(new VirkningType()
                                                                 .withFraTidspunkt(new TidspunktType()
-                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedVirkningFra()))) // Mandatory
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedVirkningFra()))) // Mandatory
                                                                 .withTilTidspunkt(new TidspunktType()
                                                                 //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().EffektueringEjerVirkningTil())) // Mandatory
                                                                         .withGraenseIndikator(true)
                                                                 )
                                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
-                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
+                                                                        .withUUIDIdentifikator(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
                                                                 )
-                                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedAktoerTypeKode()))
+                                                                .withAktoerTypeKode(AktoerTypeKodeType.fromValue(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedAktoerTypeKode()))
                                                         )
                                                         .withRolle(new UnikIdType() // Only one actor?
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedRolleUuid()) // UUID / Developer derive the value from Fælleskommunalt Klassifikationssystem
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedRolleUuid()) // UUID / Developer derive the value from Fælleskommunalt Klassifikationssystem
                                                         )
                                                         .withType(new UnikIdType()
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedTypeUuid()) // UUID / Developer derive the value from Fælleskommunalt Klassifikationssystem
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedTypeUuid()) // UUID / Developer derive the value from Fælleskommunalt Klassifikationssystem
                                                         )
                                                         .withReferenceID(new UnikIdType() // Mandatory / UUID (String) / Developer derive the value from Fælleskommunalt Organisationssystem
-                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedReferenceID()) // UUID derived from Fælleskommunalt Organisationssystem
+                                                                .withUUIDIdentifikator(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedReferenceID()) // UUID derived from Fælleskommunalt Organisationssystem
                                                         )
                                                         /*
                                                         .withLokalUdvidelseListe(new LokalUdvidelseListeType() // Follow up

@@ -307,6 +307,22 @@ public class ClientProperties {
 
     private static final String IT_SYSTEM_SENDER_AKTOER_REF = "itSystemSenderAktoerRef";
 
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_FULDT_NAVN = "okonomiskEffektueringsaktoerUdbetalendeEnhedFuldtNavn";
+
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_CVR_NR = "okonomiskEffektueringsaktoerUdbetalendeEnhedCVRNr";
+
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_VIRKNING_FRA = "okonomiskEffektueringsaktoerUdbetalendeEnhedVirkningFra";
+
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_AKTOER_REF = "okonomiskEffektueringsaktoerUdbetalendeEnhedAktoerRef";
+
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_AKTOER_TYPE_KODE = "okonomiskEffektueringsaktoerUdbetalendeEnhedAktoerTypeKode";
+
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_ROLLE_UUiD = "okonomiskEffektueringsaktoerUdbetalendeEnhedRolleUuid";
+
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_TYPE_UUID = "okonomiskEffektueringsaktoerUdbetalendeEnhedTypeUuid";
+
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_REFERENCE_ID = "okonomiskEffektueringsaktoerUdbetalendeEnhedReferenceID";
+
     /**
      * Method creates a new instance of ClientProperties
      * @return clientProperties
@@ -648,5 +664,21 @@ public class ClientProperties {
     public String getItSystemSenderAktoerTypeKodeType() { return properties.getProperty(IT_SYSTEM_SENDER_AKTOER_TYPE_KODE_TYPE); }
 
     public String getItSystemSenderAktoerRef() { return properties.getProperty(IT_SYSTEM_SENDER_AKTOER_REF); }
+
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedFuldtNavn() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_FULDT_NAVN); }
+
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedCVRNr() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_CVR_NR); }
+
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedVirkningFra() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_VIRKNING_FRA); }
+
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedAktoerRef() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_AKTOER_REF); }
+
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedAktoerTypeKode() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_AKTOER_TYPE_KODE); }
+
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedRolleUuid() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_ROLLE_UUiD); }
+
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedTypeUuid() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_TYPE_UUID); }
+
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedReferenceID() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_REFERENCE_ID); }
 
 }
