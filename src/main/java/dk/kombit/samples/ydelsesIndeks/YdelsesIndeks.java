@@ -313,8 +313,8 @@ public class YdelsesIndeks {
                                                                 .withFraTidspunkt(new TidspunktType()
                                                                         .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getYdelseseffektueringVirkningFra()))) // Mandatory / 2024-01-01T12:00:00"))
                                                                 .withTilTidspunkt(new TidspunktType()
-                                                                //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().YdelseseffektueringVirkningTil())) // Mandatory / 2024-01-01T12:00:00
-                                                                        .withGraenseIndikator(true)
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getydelseseffektueringVirkningTil())) // Mandatory / 2024-01-01T12:00:00
+                                                                //      .withGraenseIndikator(true)
                                                                 )
                                                                 .withAktoerRef(new UnikIdType() // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
                                                                         .withUUIDIdentifikator(ClientProperties.getInstance().getYdelseseffektueringAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
@@ -356,8 +356,8 @@ public class YdelsesIndeks {
                                                                 .withFraTidspunkt(new TidspunktType()
                                                                         .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getEffektueringEjerVirkningFra()))) // Mandatory
                                                                 .withTilTidspunkt(new TidspunktType()
-                                                                //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().EffektueringEjerVirkningTil())) // Mandatory
-                                                                        .withGraenseIndikator(true)
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getokonomiskEffektueringsaktoerEjerVirkningFra())) // Mandatory
+                                                                //      .withGraenseIndikator(true)
                                                                 )
                                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
                                                                         .withUUIDIdentifikator(ClientProperties.getInstance().getEffektueringEjerAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
@@ -387,10 +387,10 @@ public class YdelsesIndeks {
                                                         .withCVRNr(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedCVRNr())
                                                         .withVirkning(new VirkningType()
                                                                 .withFraTidspunkt(new TidspunktType()
-                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedVirkningFra()))) // Mandatory
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedVirkningFra()))) // Mandatory
                                                                 .withTilTidspunkt(new TidspunktType()
-                                                                //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().EffektueringEjerVirkningTil())) // Mandatory
-                                                                        .withGraenseIndikator(true)
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getokonomiskEffektueringsaktoerUdbetalendeEnhedVirkningTil())) // Mandatory
+                                                                //      .withGraenseIndikator(true)
                                                                 )
                                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
                                                                         .withUUIDIdentifikator(ClientProperties.getInstance().getOkonomiskEffektueringsaktoerUdbetalendeEnhedAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem
@@ -421,7 +421,8 @@ public class YdelsesIndeks {
                                                                 .withFraTidspunkt(new TidspunktType()
                                                                         .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getBevillingsegenskaberVirkningFra()))) // Mandatory "ÆØÅ"
                                                                 .withTilTidspunkt(new TidspunktType()
-                                                                        .withGraenseIndikator(true)
+                                                                        .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getbevillingsEgenskaberVirkningTil())) // Mandatory
+                                                                //      .withGraenseIndikator(true)
                                                                 )
                                                                 .withAktoerRef(new UnikIdType()  // Mandatory / String / Either UUID or URN / if the Organisation has not been created in Fælleskommunalt Organisationssystem, then indicate an URN with the following structure: 'urn:oio:cvr-nr:[0-9]{8}'
                                                                         .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemMasterAktoerRef()) // UUID / Developer derive the value from Fælleskommunalt Organisationssystem "ÆØÅ"
@@ -453,8 +454,8 @@ public class YdelsesIndeks {
                                                                                 .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getItSystemSenderStartDate()))
                                                                         )
                                                                         .withTilTidspunkt(new TidspunktType()
-                                                                        //      .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getItSystemSenderEndDate()))
-                                                                                .withGraenseIndikator(true)
+                                                                                .withTidsstempelDatoTid(SoapUtils.getXmlCalender(ClientProperties.getInstance().getItSystemSenderEndDate()))
+                                                                        //      .withGraenseIndikator(true)
                                                                         )
                                                                         .withAktoerRef(new UnikIdType()
                                                                                 .withUUIDIdentifikator(ClientProperties.getInstance().getItSystemSenderAktoerRef())
