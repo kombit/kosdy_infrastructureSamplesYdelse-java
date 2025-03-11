@@ -41,15 +41,17 @@ public class ClientProperties {
 
     private static final String BEVILLING_UUID_IDENTIFIKATOR = "bevillingUUIDIdentifikator";
 
-    private static final String BEVILLINGS_EGENSKABER_AKTOER_REF = "bevillingsegenskaberAktoerRef";
+    private static final String BEVILLINGS_EGENSKABER_AKTOER_REF = "bevillingsEgenskaberAktoerRef";
 
-    private static final String BEVILLINGS_EGENSKABER_AKTOER_TYPE_KODE = "bevillingsegenskaberAktoerTypeKode";
+    private static final String BEVILLINGS_EGENSKABER_AKTOER_TYPE_KODE = "bevillingsEgenskaberAktoerTypeKode";
 
-    private static final String BEVILLINGS_EGENSKABER_BRUGERVENDT_NOEGLE = "bevillingsegenskaberBrugervendtnoegle";
+    private static final String BEVILLINGS_EGENSKABER_BRUGERVENDT_NOEGLE = "bevillingsEgenskaberBrugervendtnoegle";
 
-    private static final String BEVILLINGS_EGENSKABER_FOELSOMHED = "bevillingsegenskaberFoelsomhed";
+    private static final String BEVILLINGS_EGENSKABER_FOELSOMHED = "bevillingsEgenskaberFoelsomhed";
 
-    private static final String BEVILLINGS_EGENSKABER_VIRKNING_FRA = "bevillingsegenskaberVirkningFra";
+    private static final String BEVILLINGS_EGENSKABER_VIRKNING_FRA = "bevillingsEgenskaberVirkningFra";
+
+    private static final String BEVILLINGS_EGENSKABER_VIRKNING_TIL = "bevillingsEgenskaberVirkningTil";
 
     private static final String BEVILGET_YDELSE_VIRKNING_FRA = "bevilgetYdelseVirkningFra";
 
@@ -193,6 +195,8 @@ public class ClientProperties {
 
     private static final String EFFEKTUERING_EJER_VIRKNING_FRA = "effektueringEjerVirkningFra";
 
+    private static final String EFFEKTUERING_EJER_VIRKNING_TIL = "effektueringEjerVirkningTil";
+
     private static final String EFFEKTUERING_EJER_AKTOER_REF = "effektueringEjerAktoerRef";
 
     private static final String EFFEKTUERING_EJER_ROLLE_UUID = "effektueringEjerRolleUuid";
@@ -323,6 +327,10 @@ public class ClientProperties {
 
     private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_REFERENCE_ID = "okonomiskEffektueringsaktoerUdbetalendeEnhedReferenceID";
 
+    private static final String YDELSEEFFEKTUERING_VIRKNING_TIL = "ydelseseffektueringVirkningTil";
+
+    private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_VIRKNING_TIL = "okonomiskEffektueringsaktoerUdbetalendeEnhedVirkningTil";
+
     /**
      * Method creates a new instance of ClientProperties
      * @return clientProperties
@@ -401,13 +409,15 @@ public class ClientProperties {
 
     public String getBevillingsEgenskaberAktoerRef() { return properties.getProperty(BEVILLINGS_EGENSKABER_AKTOER_REF); }
 
-    public String getBevillingsegenskaberAktoerTypeKode() { return properties.getProperty(BEVILLINGS_EGENSKABER_AKTOER_TYPE_KODE); }
+    public String getBevillingsEgenskaberAktoerTypeKode() { return properties.getProperty(BEVILLINGS_EGENSKABER_AKTOER_TYPE_KODE); }
 
-    public String getBevillingsegenskaberBrugervendtnoegle() { return properties.getProperty(BEVILLINGS_EGENSKABER_BRUGERVENDT_NOEGLE); }
+    public String getBevillingsEgenskaberBrugervendtnoegle() { return properties.getProperty(BEVILLINGS_EGENSKABER_BRUGERVENDT_NOEGLE); }
 
-    public String getBevillingsegenskaberFoelsomhed() { return properties.getProperty(BEVILLINGS_EGENSKABER_FOELSOMHED); }
+    public String getBevillingsEgenskaberFoelsomhed() { return properties.getProperty(BEVILLINGS_EGENSKABER_FOELSOMHED); }
 
-    public String getBevillingsegenskaberVirkningFra() { return properties.getProperty(BEVILLINGS_EGENSKABER_VIRKNING_FRA); }
+    public String getBevillingsEgenskaberVirkningFra() { return properties.getProperty(BEVILLINGS_EGENSKABER_VIRKNING_FRA); }
+
+    public String getBevillingsEgenskaberVirkningTil() { return properties.getProperty(BEVILLINGS_EGENSKABER_VIRKNING_TIL); }
 
     public String getBevilgetYdelseVirkningFra() { return properties.getProperty(BEVILGET_YDELSE_VIRKNING_FRA); }
 
@@ -671,6 +681,8 @@ public class ClientProperties {
 
     public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedVirkningFra() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_VIRKNING_FRA); }
 
+    public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedVirkningTil() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_VIRKNING_TIL); }
+
     public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedAktoerRef() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_AKTOER_REF); }
 
     public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedAktoerTypeKode() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_AKTOER_TYPE_KODE); }
@@ -680,5 +692,9 @@ public class ClientProperties {
     public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedTypeUuid() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_TYPE_UUID); }
 
     public String getOkonomiskEffektueringsaktoerUdbetalendeEnhedReferenceID() { return properties.getProperty(EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_REFERENCE_ID); }
+
+    public String getYdelseseffektueringVirkningTil() { return properties.getProperty(YDELSEEFFEKTUERING_VIRKNING_TIL); }
+
+    public String getEffektueringEjerVirkningTil() { return properties.getProperty(EFFEKTUERING_EJER_VIRKNING_TIL); }
 
 }
