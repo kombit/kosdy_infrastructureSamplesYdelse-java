@@ -91,11 +91,17 @@ public class ClientProperties {
 
     private static final String BEVILLINGS_SAG_ROLLE_UUID = "bevillingssagRolleUuid";
 
+    private static final String BEVILLINGS_SAG_MODTAGER_ROLLE_UUID = "bevillingssagModtagerRolleUuid";
+
     private static final String BEVILLINGS_SAG_TYPE_UUID = "bevillingssagTypeUuid";
+
+    private static final String BEVILLINGS_SAG_INDEKS = "bevillingssagIndeks";
 
     private static final String BEVILLINGS_PART_BRUGERVENDT_NOEGLE = "bevillingspartBrugervendtNoegle";
 
     private static final String YDELSESMODTAGER_FULDT_NAVN = "ydelsesmodtagerFuldtNavn";
+
+    private static final String YDELSESMODTAGER_FULDT_NAVN_MODTAGER = "ydelsesmodtagerFuldtNavnModtager";
 
     private static final String BEVILLINGS_PART_STARTDATO = "bevillingspartStartdato";
 
@@ -330,6 +336,9 @@ public class ClientProperties {
     private static final String YDELSEEFFEKTUERING_VIRKNING_TIL = "ydelseseffektueringVirkningTil";
 
     private static final String EFFEKTUERINGS_AKTOER_UDBETALENDE_ENHED_VIRKNING_TIL = "okonomiskEffektueringsaktoerUdbetalendeEnhedVirkningTil";
+
+    private static final String AFSENDER_SYSTEM_UUID = "afsenderSystemUuid";
+    private static final String AFSENDER_SYSTEM_NAVN = "afsenderSystemNavn";
 
     /**
      * Method creates a new instance of ClientProperties
@@ -696,5 +705,15 @@ public class ClientProperties {
     public String getYdelseseffektueringVirkningTil() { return properties.getProperty(YDELSEEFFEKTUERING_VIRKNING_TIL); }
 
     public String getEffektueringEjerVirkningTil() { return properties.getProperty(EFFEKTUERING_EJER_VIRKNING_TIL); }
+
+    public String getAfsenderSystemUuid() { return properties.getProperty(AFSENDER_SYSTEM_UUID); }
+
+    public String getAfsenderSystemNavn() { return properties.getProperty(AFSENDER_SYSTEM_NAVN); }
+
+    public String getYdelsesmodtagerFuldtNavnModtager() { return properties.getProperty(YDELSESMODTAGER_FULDT_NAVN_MODTAGER); }
+
+    public String getBevillingssagIndeks() { return properties.getProperty(BEVILLINGS_SAG_INDEKS); }
+
+    public String getBevillingssagModtagerRolleUuid() { return properties.getProperty(BEVILLINGS_SAG_MODTAGER_ROLLE_UUID); }
 
 }

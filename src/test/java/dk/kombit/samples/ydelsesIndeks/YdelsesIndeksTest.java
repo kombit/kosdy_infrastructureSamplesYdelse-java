@@ -3,20 +3,15 @@ package dk.kombit.samples.ydelsesIndeks;
 import dk.kombit.samples.bevillingIndeks.BevillingIndeks;
 import dk.kombit.samples.oekonomiskEffektueringIndeks.OekonomiskEffektueringIndeks;
 import dk.kombit.samples.utils.ClientProperties;
+import dk.kombit.samples.utils.SoapUtils;
 import oio.sagdok._3_0.BasicOutputType;
 import oio.sagdok._3_0.MultipleOutputType;
 import oio.sagdok._3_0.StandardReturType;
 import oio.sagdok._3_0.UnikReturType;
-import oio.sts.ydelse.ydelseindeks._6.FremsoegYdelseIndeksInputType;
 import oio.sts.ydelse.ydelseindeks._6.FremsoegYdelseIndeksOutputType;
-import oio.sts.ydelse.ydelseindeks._6.OpdaterYdelseIndeksInputType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Test class for YdelsesIndeks
@@ -56,6 +51,19 @@ public class YdelsesIndeksTest {
         BevillingIndeks bevillingIndeks = BevillingIndeks.getBevillingIndeks();
         OekonomiskEffektueringIndeks oekonomiskEffektueringIndeks = OekonomiskEffektueringIndeks.getOekonomiskEffektueringIndeks();
 
+        BasicOutputType fjernBevillingIndeksOutput = bevillingIndeks.fjern();
+
+        //Assert.isTrue(fjernBevillingIndeksOutput.getStandardRetur().getStatusKode() != null, "StandardRetur indeholder elementer");
+        System.out.println("Statuskode: " + fjernBevillingIndeksOutput.getStandardRetur().getStatusKode());
+        System.out.println("FejlbeskedTekst: " + fjernBevillingIndeksOutput.getStandardRetur().getFejlbeskedTekst());
+
+        BasicOutputType fjernOekonomiskEffektueringIndeksOutput = oekonomiskEffektueringIndeks.fjern();
+
+        //Assert.isTrue( fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getStatusKode() != null, "StandardRetur indeholder elementer");
+        System.out.println("Statuskode: " + fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getStatusKode());
+        System.out.println("FejlbeskedTekst: " + fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getFejlbeskedTekst());
+
+
         MultipleOutputType importerOutput = ydelsesIndeks.importer();
 
         //Assert.isTrue(!importerOutput.getUnikRetur().isEmpty(), "UnikRetur indeholder elementer");
@@ -73,9 +81,11 @@ public class YdelsesIndeksTest {
         }
 
 
-        /*
+
 
         MultipleOutputType opdaterOutput = ydelsesIndeks.opdater();
+
+        SoapUtils.saveXml(opdaterOutput);
 
         //Assert.isTrue(!opdaterOutput.getUnikRetur().isEmpty(), "UnikRetur indeholder elementer");
         for (UnikReturType unikRetur : opdaterOutput.getUnikRetur()) {
@@ -91,7 +101,11 @@ public class YdelsesIndeksTest {
             System.out.println("DetaljeretFejlbesked: " + standardRetur.getDetaljeretFejlbesked());
         }
 
+
+
         FremsoegYdelseIndeksOutputType fremsoegOutput = ydelsesIndeks.fremsoeg();
+
+        SoapUtils.saveXml(fremsoegOutput);
 
         //Assert.isTrue(fremsoegOutput.getAntal().isEmpty(), "Antal indeholder elementer");
         //Assert.isTrue(fremsoegOutput.getStandardRetur() != null, "StandardRetur er null");
@@ -100,20 +114,6 @@ public class YdelsesIndeksTest {
         //Assert.isTrue(fremsoegOutput.getBevillingFiltreretOejebliksbillede().isEmpty(), "BevillingFiltreretOejebliksbillede indeholder elementer");
         //Assert.isTrue(fremsoegOutput.getOekonomiskEffektueringFiltreretOejebliksbillede().isEmpty(), "OekonomiskEffektueringFiltreretOejebliksbillede indeholder elementer");
 
-        BasicOutputType fjernBevillingIndeksOutput = bevillingIndeks.fjern();
-
-        //Assert.isTrue(fjernBevillingIndeksOutput.getStandardRetur().getStatusKode() != null, "StandardRetur indeholder elementer");
-        System.out.println("Statuskode: " + fjernBevillingIndeksOutput.getStandardRetur().getStatusKode());
-        System.out.println("FejlbeskedTekst: " + fjernBevillingIndeksOutput.getStandardRetur().getFejlbeskedTekst());
-
-        BasicOutputType fjernOekonomiskEffektueringIndeksOutput = oekonomiskEffektueringIndeks.fjern();
-
-        //Assert.isTrue( fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getStatusKode() != null, "StandardRetur indeholder elementer");
-        System.out.println("Statuskode: " + fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getStatusKode());
-        System.out.println("FejlbeskedTekst: " + fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getFejlbeskedTekst());
-
-
-         */
     }
 
 }

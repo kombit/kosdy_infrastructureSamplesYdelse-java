@@ -1,12 +1,19 @@
 package dk.kombit.samples.utils;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.StringWriter;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 import java.util.UUID;
+
+import oio.sts.ydelse.ydelseindeks._6.FremsoegYdelseIndeksInputType;
 import org.slf4j.Logger;
 
+import javax.xml.bind.*;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPFault;
 import javax.xml.ws.Holder;
 import javax.xml.ws.soap.SOAPFaultException;
@@ -61,5 +68,32 @@ public final class SoapUtils {
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.setTimeZone(TimeZone.getTimeZone("Europe/Copenhagen"));
         return DatatypeFactory.newDefaultInstance().newXMLGregorianCalendar(calendar);
+    }
+
+    private static <T> String convertToXml(T object, String rootElement) throws JAXBException {
+        //Add all classes that need to be extracted to xml
+        JAXBContext context = JAXBContext.newInstance(dk.kombit.xml.schemas.requestheader._1.RequestHeaderType.class, oio.sts.ydelse.ydelseindeks._6.ImporterYdelseIndeksInputType.class, javax.xml.ws.Holder.class, oio.sagdok._3_0.MultipleOutputType.class, oio.sts.ydelse.ydelseindeks._6.FremsoegYdelseIndeksOutputType.class, oio.sts.ydelse.ydelseindeks._6.OpdaterYdelseIndeksInputType.class, oio.sts.ydelse.ydelseindeks._6.FremsoegYdelseIndeksInputType.class);
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+        // Opret en QName som rodkontext
+        QName qName = new QName(rootElement);
+        JAXBElement<T> root = new JAXBElement<>(qName, (Class<T>) object.getClass(), object);
+
+        StringWriter writer = new StringWriter();
+        marshaller.marshal(root, writer);
+
+        return writer.toString();
+    }
+
+    public static <T> void saveXml(T object) {
+        try {
+            String xml = convertToXml(object, object.getClass().getSimpleName());
+            BufferedWriter writer = new BufferedWriter(new FileWriter(object.getClass().getName() + ".xml"));
+            writer.write(xml);
+            writer.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
