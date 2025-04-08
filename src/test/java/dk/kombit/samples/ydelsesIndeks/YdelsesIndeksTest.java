@@ -114,6 +114,17 @@ public class YdelsesIndeksTest {
         //Assert.isTrue(fremsoegOutput.getBevillingFiltreretOejebliksbillede().isEmpty(), "BevillingFiltreretOejebliksbillede indeholder elementer");
         //Assert.isTrue(fremsoegOutput.getOekonomiskEffektueringFiltreretOejebliksbillede().isEmpty(), "OekonomiskEffektueringFiltreretOejebliksbillede indeholder elementer");
 
+        fjernBevillingIndeksOutput = bevillingIndeks.fjern();
+
+        //Assert.isTrue(fjernBevillingIndeksOutput.getStandardRetur().getStatusKode() != null, "StandardRetur indeholder elementer");
+        System.out.println("Statuskode: " + fjernBevillingIndeksOutput.getStandardRetur().getStatusKode());
+        System.out.println("FejlbeskedTekst: " + fjernBevillingIndeksOutput.getStandardRetur().getFejlbeskedTekst());
+
+        fjernOekonomiskEffektueringIndeksOutput = oekonomiskEffektueringIndeks.fjern();
+
+        //Assert.isTrue( fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getStatusKode() != null, "StandardRetur indeholder elementer");
+        System.out.println("Statuskode: " + fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getStatusKode());
+        System.out.println("FejlbeskedTekst: " + fjernOekonomiskEffektueringIndeksOutput.getStandardRetur().getFejlbeskedTekst());
     }
 
 }
