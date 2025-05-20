@@ -8,6 +8,7 @@ import oio.sagdok._3_0.BasicOutputType;
 import oio.sagdok._3_0.MultipleOutputType;
 import oio.sagdok._3_0.StandardReturType;
 import oio.sagdok._3_0.UnikReturType;
+import oio.sts.ydelse.ydelseindeks._6.AntalType;
 import oio.sts.ydelse.ydelseindeks._6.FremsoegYdelseIndeksOutputType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -107,7 +108,22 @@ public class YdelsesIndeksTest {
 
         SoapUtils.saveXml(fremsoegOutput);
 
-        //Assert.isTrue(fremsoegOutput.getAntal().isEmpty(), "Antal indeholder elementer");
+        for (AntalType antalType : fremsoegOutput.getAntal()) {
+            System.out.println("Fundet: " +  antalType.getElement() + " med antal: " + antalType.getAntal());
+        }
+        //Assert.isTrue(fremsoegOutput.getStandardRetur() != null, "StandardRetur er null");
+        System.out.println("Statuskode: " + fremsoegOutput.getStandardRetur().getStatusKode());
+        System.out.println("FejlbeskedTekst: " + fremsoegOutput.getStandardRetur().getFejlbeskedTekst());
+        //Assert.isTrue(fremsoegOutput.getBevillingFiltreretOejebliksbillede().isEmpty(), "BevillingFiltreretOejebliksbillede indeholder elementer");
+        //Assert.isTrue(fremsoegOutput.getOekonomiskEffektueringFiltreretOejebliksbillede().isEmpty(), "OekonomiskEffektueringFiltreretOejebliksbillede indeholder elementer");
+
+        fremsoegOutput = ydelsesIndeks.fremsoegNOT();
+
+        SoapUtils.saveXml(fremsoegOutput);
+
+        for (AntalType antalType : fremsoegOutput.getAntal()) {
+            System.out.println("Fundet: " +  antalType.getElement() + " med antal: " + antalType.getAntal());
+        }
         //Assert.isTrue(fremsoegOutput.getStandardRetur() != null, "StandardRetur er null");
         System.out.println("Statuskode: " + fremsoegOutput.getStandardRetur().getStatusKode());
         System.out.println("FejlbeskedTekst: " + fremsoegOutput.getStandardRetur().getFejlbeskedTekst());
