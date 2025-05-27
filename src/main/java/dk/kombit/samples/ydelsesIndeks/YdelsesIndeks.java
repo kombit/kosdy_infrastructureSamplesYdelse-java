@@ -804,7 +804,6 @@ public class YdelsesIndeks {
                                 )
                                 // Bevillings Aktør Ejer
                                 .withBevillingsaktoer(new oio.sts.ydelse.bevillingindeks._6.BevillingIndeksAktoerRelationType()
-                                        .withBrugervendtNoegle(ClientProperties.getInstance().getBevillingEjerBrugervendtNoegle()) // Blank / If no Ref. UUID to Fælleskommunal Organisation, this must be filled
                                         .withFuldtNavn(ClientProperties.getInstance().getBevillingEjerFuldtNavn()) // Mandatory / The municipality
                                         .withCVRNr(ClientProperties.getInstance().getBevillingEjerCvrNr()) // Identification of the instance
                                         .withVirkning(new VirkningType()
@@ -1898,7 +1897,7 @@ public class YdelsesIndeks {
 
                                                                                                 )
                                                                                                 .withBevillingsaktoer(List.of(new BevillingIndeksAktoerRelationType()
-                                                                                                                .withBrugervendtNoegle(ClientProperties.getInstance().getBevillingEjerBrugervendtNoegle())
+                                                                                                                //.withBrugervendtNoegle(ClientProperties.getInstance().getBevillingEjerBrugervendtNoegle())
                                                                                                                 .withFuldtNavn(ClientProperties.getInstance().getBevillingEjerFuldtNavn())
                                                                                                                 .withCVRNr(ClientProperties.getInstance().getBevillingEjerCvrNr())
                                                                                                                 .withVirkning(new VirkningType()
